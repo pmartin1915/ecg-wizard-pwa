@@ -1,0 +1,50 @@
+# ==============================================================================
+# ECG Classification PWA Backend - Dependencies
+# Preserves exact AI logic from Streamlit system
+# ==============================================================================
+
+# Core Backend Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+
+# CORS and Security
+fastapi-cors==0.0.1
+python-jose[cryptography]==3.3.0
+passlib[bcrypt]==1.7.4
+
+# Data Processing (EXACT versions from Streamlit system)
+pandas==2.2.0
+numpy==1.26.3
+
+# Machine Learning (EXACT versions to preserve AI accuracy)
+scikit-learn==1.4.0
+joblib==1.3.2
+imbalanced-learn==0.12.0
+
+# ECG Signal Processing (EXACT versions)
+wfdb==4.1.2
+scipy==1.12.0
+neurokit2==0.2.7
+
+# File Processing
+aiofiles==23.2.1
+python-json-logger==2.0.7
+
+# Utilities
+tqdm==4.66.1
+psutil==5.9.7
+python-dotenv==1.0.1
+pathlib2==2.3.7
+
+# Development
+pydantic==2.5.0
+httpx==0.25.2
+
+# WebSocket support for real-time progress
+websockets==12.0
+
+# ==============================================================================
+# CRITICAL: These versions MUST match the Streamlit system exactly
+# to preserve AI classification accuracy and behavior
+# ==============================================================================

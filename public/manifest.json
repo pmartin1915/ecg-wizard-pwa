@@ -1,0 +1,83 @@
+{
+  "short_name": "ECG Classification",
+  "name": "ECG Classification System - Professional Medical PWA",
+  "description": "Professional ECG Classification System for Healthcare Professionals - Advanced AI-powered cardiac diagnostics and clinical training platform",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#1e3a8a",
+  "background_color": "#f8f9fa",
+  "orientation": "any",
+  "scope": ".",
+  "categories": ["medical", "health", "productivity", "education"],
+  "screenshots": [
+    {
+      "src": "screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "screenshot-narrow.png", 
+      "sizes": "540x720",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Analyze ECG",
+      "short_name": "Analyze",
+      "description": "Upload and analyze ECG recordings",
+      "url": "/analyze",
+      "icons": [
+        {
+          "src": "icon-analyze-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Demo Files",
+      "short_name": "Demo",
+      "description": "Try sample ECG analysis",
+      "url": "/demo",
+      "icons": [
+        {
+          "src": "icon-demo-96.png", 
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Clinical Reference",
+      "short_name": "Reference",
+      "description": "Cardiac conditions database",
+      "url": "/reference",
+      "icons": [
+        {
+          "src": "icon-reference-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}

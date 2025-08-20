@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1e3a8a" />
+    <meta name="description" content="Professional ECG Classification System - Advanced AI-powered cardiac diagnostics for healthcare professionals and clinical training environments." />
+    
+    <!-- PWA Meta Tags -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="ECG Classification">
+    <meta name="mobile-web-app-capable" content="yes">
+    
+    <!-- Medical/Professional Meta Tags -->
+    <meta name="application-name" content="ECG Classification System" />
+    <meta name="author" content="Healthcare Technology Solutions" />
+    <meta name="keywords" content="ECG, electrocardiogram, cardiac, AI, medical, healthcare, diagnostics, clinical, training" />
+    
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    
+    <!-- Professional Medical Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <title>ECG Classification System - Professional Medical PWA</title>
+    
+    <!-- Professional Medical Styling -->
+    <style>
+      /* Reset and base styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Inter', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        background-color: #f8f9fa;
+        color: #1e293b;
+        line-height: 1.6;
+      }
+      
+      /* Loading screen styling */
+      .loading-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        color: white;
+      }
+      
+      .loading-logo {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-align: center;
+      }
+      
+      .loading-subtitle {
+        font-size: 1.1rem;
+        font-weight: 400;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        text-align: center;
+      }
+      
+      .loading-spinner {
+        width: 50px;
+        height: 50px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top: 3px solid white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      .loading-status {
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        opacity: 0.8;
+        text-align: center;
+      }
+      
+      /* Hide loading when app loads */
+      .app-loaded .loading-container {
+        display: none;
+      }
+      
+      /* Professional medical color scheme */
+      :root {
+        --primary-blue: #1e3a8a;
+        --primary-blue-light: #3b82f6;
+        --primary-blue-dark: #1e40af;
+        --background-light: #f8f9fa;
+        --background-white: #ffffff;
+        --text-primary: #1e293b;
+        --text-secondary: #64748b;
+        --border-light: #e2e8f0;
+        --success-green: #059669;
+        --warning-yellow: #f59e0b;
+        --error-red: #dc2626;
+        --info-blue: #0ea5e9;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      <div style="padding: 2rem; text-align: center; font-family: sans-serif;">
+        <h1 style="color: #dc2626; margin-bottom: 1rem;">JavaScript Required</h1>
+        <p>The ECG Classification System requires JavaScript to function properly.</p>
+        <p>Please enable JavaScript in your browser settings and reload this page.</p>
+      </div>
+    </noscript>
+    
+    <!-- Loading Screen -->
+    <div class="loading-container">
+      <div class="loading-logo">ECG Classification System</div>
+      <div class="loading-subtitle">Professional Medical PWA</div>
+      <div class="loading-spinner"></div>
+      <div class="loading-status">Initializing medical AI platform...</div>
+    </div>
+    
+    <!-- React App Container -->
+    <div id="root"></div>
+    
+    <!-- PWA Installation Script -->
+    <script>
+      // Hide loading screen when React app loads
+      setTimeout(() => {
+        const loadingContainer = document.querySelector('.loading-container');
+        if (loadingContainer) {
+          loadingContainer.style.display = 'none';
+        }
+        document.body.classList.add('app-loaded');
+      }, 2000); // Hide after 2 seconds
+      
+      // PWA installation prompt handling
+      let deferredPrompt;
+      
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        // Show custom install button when available
+        const installButton = document.getElementById('install-button');
+        if (installButton) {
+          installButton.style.display = 'block';
+        }
+      });
+      
+      // Handle app installation
+      window.addEventListener('appinstalled', (evt) => {
+        console.log('ECG Classification PWA was installed');
+        // Track installation for analytics if needed
+      });
+      
+      // Service Worker registration
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered: ', registration);
+            })
+            .catch((registrationError) => {
+              console.log('SW registration failed: ', registrationError);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
