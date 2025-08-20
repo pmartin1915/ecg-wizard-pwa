@@ -1,5 +1,7 @@
 import { useState, useCallback } from 'react';
 import type { UploadFile } from 'antd';
+import { ECGAnalyzer, ECGAnalysisResult as BaseECGResult } from '../utils/ecg-analysis';
+import { DesktopNotifications, isDesktop } from '../desktop';
 
 interface ECGAnalysisResult {
   success: boolean;
@@ -54,25 +56,31 @@ export const useECGAnalysis = () => {
     const progressInterval = simulateProgress();
 
     try {
-      const formData = new FormData();
-      formData.append('file', file as any);
-
-      const response = await fetch('http://localhost:8000/api/v1/classify-ecg', {
-        method: 'POST',
-        body: formData,
+      // Read file content as text
+      const fileContent = await new Promise<string>((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = (e) => resolve(e.target?.result as string);
+        reader.onerror = reject;
+        reader.readAsText(file as any);
       });
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-
-      const result = await response.json();
+      // Use client-side ECG analyzer
+      const result: BaseECGResult = await ECGAnalyzer.analyzeECGFile(fileContent);
       
-      setTimeout(() => {
+      setTimeout(async () => {
         clearInterval(progressInterval);
         setProgress(100);
         setAnalysisResult(result);
         setIsAnalyzing(false);
+
+        // Send desktop notification if available
+        if (result.success && isDesktop()) {
+          await DesktopNotifications.notifyAnalysisComplete(
+            result.diagnosis,
+            result.confidence,
+            result.features.estimated_heart_rate
+          );
+        }
       }, 1000);
 
     } catch (err) {
@@ -81,6 +89,11 @@ export const useECGAnalysis = () => {
       setError(errorMessage);
       setIsAnalyzing(false);
       setProgress(0);
+
+      // Send error notification if available
+      if (isDesktop()) {
+        await DesktopNotifications.notifyError('Analysis Failed', errorMessage);
+      }
     }
   }, [simulateProgress]);
 
@@ -92,21 +105,59 @@ export const useECGAnalysis = () => {
     const progressInterval = simulateProgress();
 
     try {
-      const response = await fetch(`http://localhost:8000/api/v1/analyze-demo/${demoId}`, {
-        method: 'POST',
-      });
+      // Load demo ECG file from backend/samples directory
+      const demoFiles: Record<string, string> = {
+        'normal': 'normal_sinus_rhythm.csv',
+        'afib': 'atrial_fibrillation.csv',
+        'mi': 'myocardial_infarction.csv'
+      };
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      const fileName = demoFiles[demoId] || 'normal_sinus_rhythm.csv';
+      
+      // In desktop mode, load from local files
+      // In web mode, fetch from backend
+      let csvContent: string;
+      
+      if (isDesktop()) {
+        // For desktop, we'll include demo files in the build
+        const response = await fetch(`/samples/${fileName}`);
+        if (!response.ok) {
+          throw new Error('Demo file not found');
+        }
+        csvContent = await response.text();
+      } else {
+        // For web mode, fallback to backend API
+        const response = await fetch(`http://localhost:8000/api/v1/analyze-demo/${demoId}`, {
+          method: 'POST',
+        });
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const result = await response.json();
+        setAnalysisResult(result);
+        setIsAnalyzing(false);
+        clearInterval(progressInterval);
+        setProgress(100);
+        return;
       }
 
-      const result = await response.json();
+      // Use client-side ECG analyzer for desktop
+      const result: BaseECGResult = await ECGAnalyzer.analyzeECGFile(csvContent);
       
-      setTimeout(() => {
+      setTimeout(async () => {
         clearInterval(progressInterval);
         setProgress(100);
         setAnalysisResult(result);
         setIsAnalyzing(false);
+
+        // Send desktop notification if available
+        if (result.success && isDesktop()) {
+          await DesktopNotifications.notifyAnalysisComplete(
+            result.diagnosis,
+            result.confidence,
+            result.features.estimated_heart_rate
+          );
+        }
       }, 1000);
 
     } catch (err) {
@@ -115,6 +166,11 @@ export const useECGAnalysis = () => {
       setError(errorMessage);
       setIsAnalyzing(false);
       setProgress(0);
+
+      // Send error notification if available
+      if (isDesktop()) {
+        await DesktopNotifications.notifyError('Demo Analysis Failed', errorMessage);
+      }
     }
   }, [simulateProgress]);
 
