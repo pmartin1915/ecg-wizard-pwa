@@ -27,7 +27,6 @@
   "bundle": {
     "active": true,
     "targets": "all",
-    "identifier": "com.perrymartin.ecgwizard",
     "publisher": "Perry Martin",
     "category": "Education",
     "shortDescription": "Professional ECG analysis for medical education",

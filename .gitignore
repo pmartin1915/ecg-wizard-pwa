@@ -75,3 +75,6 @@ venv.bak/
 
 # Local development
 .claude/settings.local.json
+
+# Tauri build artifacts
+src-tauri/target/
