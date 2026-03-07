@@ -75,3 +75,11 @@ venv.bak/
 
 # Local development
 .claude/settings.local.json
+
+# Vite
+*.local
+dev-dist/
+
+# PWA generated
+sw.js
+workbox-*.js

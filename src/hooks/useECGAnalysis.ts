@@ -57,7 +57,7 @@ export const useECGAnalysis = () => {
       const formData = new FormData();
       formData.append('file', file as any);
 
-      const response = await fetch('http://localhost:8000/api/v1/classify-ecg', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/classify-ecg`, {
         method: 'POST',
         body: formData,
       });
@@ -92,7 +92,7 @@ export const useECGAnalysis = () => {
     const progressInterval = simulateProgress();
 
     try {
-      const response = await fetch(`http://localhost:8000/api/v1/analyze-demo/${demoId}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/analyze-demo/${demoId}`, {
         method: 'POST',
       });
 

@@ -123,7 +123,6 @@ export const medicalTheme: ThemeConfig = {
     // Input Component
     Input: {
       colorBorder: medicalColors.borderLight,
-      colorBorderHover: medicalColors.primaryBlueLight,
       colorPrimaryHover: medicalColors.primaryBlueLight,
     },
     

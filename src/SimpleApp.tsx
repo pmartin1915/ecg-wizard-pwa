@@ -100,7 +100,7 @@ const SimpleApp: React.FC = () => {
       }
 
       // Call backend API
-      const response = await fetch(`http://localhost:8000/api/v1/analyze-demo/${demoType}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/v1/analyze-demo/${demoType}`, {
         method: 'POST',
       });
 

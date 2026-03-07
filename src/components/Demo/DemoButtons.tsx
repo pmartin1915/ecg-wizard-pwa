@@ -13,27 +13,38 @@ interface DemoButtonsProps {
 const DemoButton = styled(Button)`
   &&& {
     height: auto;
+    min-height: 120px;
     padding: 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
+    white-space: normal;
+    overflow: hidden;
     background-color: var(--medical-background-white);
     border: 2px solid var(--medical-border-light);
     border-radius: 12px;
     transition: all 0.3s ease;
-    
+
+    /* Ensure inner Ant Design spans also wrap */
+    > span {
+      white-space: normal;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      max-width: 100%;
+    }
+
     &:hover {
       border-color: var(--medical-primary-blue);
       background-color: var(--medical-info-bg);
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(30, 58, 138, 0.15);
     }
-    
+
     &:disabled {
       opacity: 0.5;
       cursor: not-allowed;
-      
+
       &:hover {
         transform: none;
         box-shadow: none;

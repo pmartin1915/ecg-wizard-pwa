@@ -6,7 +6,7 @@ import {
   DatabaseOutlined, 
   BookOutlined, 
   InfoCircleOutlined,
-  AnalyticsOutlined
+  BarChartOutlined
 } from '@ant-design/icons';
 import { useNavigate, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
@@ -177,7 +177,7 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, onCollapse }) => {
     },
     {
       key: '2',
-      icon: <AnalyticsOutlined />,
+      icon: <BarChartOutlined />,
       label: 'Batch Processing',
       onClick: () => navigate('/batch-processing')
     },
