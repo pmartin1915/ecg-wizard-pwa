@@ -114,7 +114,7 @@ const GlobalStylesComponent = createGlobalStyle`
     padding: 1rem;
     margin: 1rem 0;
     border-radius: 4px;
-    color: #7f1d1d;
+    color: var(--medical-critical-text);
   }
 
   .clinical-warning {
@@ -123,7 +123,7 @@ const GlobalStylesComponent = createGlobalStyle`
     padding: 1rem;
     margin: 1rem 0;
     border-radius: 4px;
-    color: #92400e;
+    color: var(--medical-warning-text);
   }
 
   .clinical-info {
@@ -132,7 +132,7 @@ const GlobalStylesComponent = createGlobalStyle`
     padding: 1rem;
     margin: 1rem 0;
     border-radius: 4px;
-    color: #0c4a6e;
+    color: var(--medical-info-text);
   }
 
   .clinical-success {
@@ -141,7 +141,7 @@ const GlobalStylesComponent = createGlobalStyle`
     padding: 1rem;
     margin: 1rem 0;
     border-radius: 4px;
-    color: #064e3b;
+    color: var(--medical-success-text);
   }
 
   /* Professional Metric Container */
@@ -156,13 +156,13 @@ const GlobalStylesComponent = createGlobalStyle`
 
   /* Medical Disclaimer Styling */
   .medical-disclaimer {
-    background-color: #fef3c7;
+    background-color: var(--medical-warning-bg-alt);
     border: 1px solid var(--medical-clinical-warning);
     border-radius: 6px;
     padding: 1rem;
     margin: 1rem 0;
     font-size: 0.95rem;
-    color: #92400e;
+    color: var(--medical-warning-text);
   }
 
   /* Professional Scrollbar Styling */

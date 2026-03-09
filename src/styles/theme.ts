@@ -32,6 +32,21 @@ export const medicalColors = {
   warningBg: '#fffbeb',         // Warning background
   infoBg: '#f0f9ff',            // Info background
   successBg: '#f0fdf4',         // Success background
+
+  // Clinical Alert Text Colors
+  criticalText: '#7f1d1d',       // Critical alert text
+  warningText: '#92400e',        // Warning alert text
+  infoText: '#0c4a6e',          // Info alert text
+  successText: '#064e3b',       // Success alert text
+
+  // Clinical Alert Border Colors (lighter variants)
+  criticalBorder: '#fca5a5',    // Critical alert border
+  warningBorder: '#fcd34d',     // Warning alert border
+  infoBorder: '#93c5fd',        // Info alert border
+  successBorder: '#86efac',     // Success alert border
+
+  // Clinical Alert Background (alternate)
+  warningBgAlt: '#fef3c7',      // Warning background (alternate/stronger)
 };
 
 // Professional Medical Theme Configuration
@@ -188,5 +203,14 @@ export const cssVariables = `
     --medical-warning-bg: ${medicalColors.warningBg};
     --medical-info-bg: ${medicalColors.infoBg};
     --medical-success-bg: ${medicalColors.successBg};
+    --medical-critical-text: ${medicalColors.criticalText};
+    --medical-warning-text: ${medicalColors.warningText};
+    --medical-info-text: ${medicalColors.infoText};
+    --medical-success-text: ${medicalColors.successText};
+    --medical-critical-border: ${medicalColors.criticalBorder};
+    --medical-warning-border: ${medicalColors.warningBorder};
+    --medical-info-border: ${medicalColors.infoBorder};
+    --medical-success-border: ${medicalColors.successBorder};
+    --medical-warning-bg-alt: ${medicalColors.warningBgAlt};
   }
 `;

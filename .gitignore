@@ -79,6 +79,7 @@ venv.bak/
 # Vite
 *.local
 dev-dist/
+vite.config.ts.timestamp-*
 
 # PWA generated
 sw.js

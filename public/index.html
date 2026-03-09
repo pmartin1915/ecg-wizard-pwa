@@ -47,8 +47,8 @@
       
       body {
         font-family: 'Inter', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-        background-color: #f8f9fa;
-        color: #1e293b;
+        background-color: var(--medical-background-light);
+        color: var(--medical-text-primary);
         line-height: 1.6;
       }
       
@@ -59,7 +59,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+        background: linear-gradient(135deg, var(--medical-primary-blue) 0%, var(--medical-primary-blue-light) 100%);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -111,18 +111,18 @@
       
       /* Professional medical color scheme */
       :root {
-        --primary-blue: #1e3a8a;
-        --primary-blue-light: #3b82f6;
-        --primary-blue-dark: #1e40af;
-        --background-light: #f8f9fa;
-        --background-white: #ffffff;
-        --text-primary: #1e293b;
-        --text-secondary: #64748b;
-        --border-light: #e2e8f0;
-        --success-green: #059669;
-        --warning-yellow: #f59e0b;
-        --error-red: #dc2626;
-        --info-blue: #0ea5e9;
+        --medical-primary-blue: #1e3a8a;
+        --medical-primary-blue-light: #3b82f6;
+        --medical-primary-blue-dark: #1e40af;
+        --medical-background-light: #f8f9fa;
+        --medical-background-white: #ffffff;
+        --medical-text-primary: #1e293b;
+        --medical-text-secondary: #64748b;
+        --medical-border-light: #e2e8f0;
+        --medical-clinical-success: #059669;
+        --medical-clinical-warning: #f59e0b;
+        --medical-clinical-critical: #dc2626;
+        --medical-clinical-info: #0ea5e9;
       }
     </style>
   </head>

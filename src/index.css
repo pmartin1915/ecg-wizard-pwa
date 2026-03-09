@@ -3,8 +3,8 @@
 
 /* ECG PWA specific styling using shared CSS variables */
 body {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
+  background-color: var(--medical-background-light);
+  color: var(--medical-text-primary);
   margin: 0;
   min-height: 100vh;
   transition: all 0.3s ease;
@@ -17,15 +17,15 @@ body {
 
 /* ECG PWA specific components - using shared design tokens */
 .ecg-header {
-  background-color: hsl(var(--card) / 0.8);
+  background-color: var(--medical-background-white);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid hsl(var(--border) / 0.6);
+  border-bottom: 1px solid var(--medical-border-light);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
 .ecg-card {
-  background-color: hsl(var(--card) / 0.95);
-  color: hsl(var(--card-foreground));
+  background-color: var(--medical-background-white);
+  color: var(--medical-text-primary);
   padding: 2rem;
   border-radius: 0.75rem;
   margin-bottom: 2rem;
@@ -34,8 +34,8 @@ body {
 }
 
 .ecg-demo-button {
-  background-color: hsl(var(--primary));
-  color: hsl(var(--primary-foreground));
+  background-color: var(--medical-primary-blue);
+  color: #ffffff;
   border: none;
   padding: 0.75rem 1.5rem;
   border-radius: 0.5rem;
@@ -51,7 +51,7 @@ body {
 }
 
 .ecg-demo-button:disabled {
-  background-color: hsl(var(--muted));
+  background-color: var(--medical-background-gray);
   cursor: not-allowed;
   opacity: 0.5;
 }
@@ -59,7 +59,7 @@ body {
 .ecg-progress-bar {
   width: 100%;
   height: 0.5rem;
-  background-color: hsl(var(--muted));
+  background-color: var(--medical-background-gray);
   border-radius: 9999px;
   overflow: hidden;
 }
@@ -68,37 +68,37 @@ body {
   height: 100%;
   border-radius: 9999px;
   transition: all 0.3s ease-in-out;
-  background: linear-gradient(90deg, hsl(var(--primary)), hsl(var(--primary-foreground)));
+  background: linear-gradient(90deg, var(--medical-primary-blue), var(--medical-primary-blue-light));
 }
 
 .ecg-alert-info {
-  background-color: #dbeafe;
-  border: 1px solid #93c5fd;
-  color: #1e40af;
+  background-color: var(--medical-info-bg);
+  border: 1px solid var(--medical-info-border);
+  color: var(--medical-info-text);
   border-radius: 0.5rem;
   padding: 1rem;
 }
 
 .ecg-alert-success {
-  background-color: #dcfce7;
-  border: 1px solid #86efac;
-  color: #166534;
+  background-color: var(--medical-success-bg);
+  border: 1px solid var(--medical-success-border);
+  color: var(--medical-success-text);
   border-radius: 0.5rem;
   padding: 1rem;
 }
 
 .ecg-alert-warning {
-  background-color: #fef3c7;
-  border: 1px solid #fcd34d;
-  color: #92400e;
+  background-color: var(--medical-warning-bg-alt);
+  border: 1px solid var(--medical-warning-border);
+  color: var(--medical-warning-text);
   border-radius: 0.5rem;
   padding: 1rem;
 }
 
 .ecg-alert-error {
-  background-color: #fee2e2;
-  border: 1px solid #fca5a5;
-  color: #dc2626;
+  background-color: var(--medical-critical-bg);
+  border: 1px solid var(--medical-critical-border);
+  color: var(--medical-clinical-critical);
   border-radius: 0.5rem;
   padding: 1rem;
 }
@@ -106,27 +106,27 @@ body {
 .ecg-metric-card {
   text-align: center;
   padding: 1rem;
-  background-color: hsl(var(--muted) / 0.5);
+  background-color: var(--medical-background-gray);
   border-radius: 0.5rem;
-  border: 1px solid hsl(var(--border));
+  border: 1px solid var(--medical-border-light);
 }
 
 .ecg-metric-value {
   font-size: 1.25rem;
   font-weight: bold;
-  color: hsl(var(--primary));
+  color: var(--medical-primary-blue);
 }
 
 .ecg-metric-label {
   font-size: 0.875rem;
-  color: hsl(var(--muted-foreground));
+  color: var(--medical-text-secondary);
 }
 
 .ecg-file-input {
   padding: 0.75rem;
-  border: 2px dashed hsl(var(--primary) / 0.5);
+  border: 2px dashed var(--medical-primary-blue-light);
   border-radius: 0.5rem;
-  background-color: hsl(var(--primary) / 0.05);
+  background-color: var(--medical-background-light);
   width: 100%;
   font-size: 1rem;
   cursor: pointer;
@@ -134,7 +134,7 @@ body {
 }
 
 .ecg-file-input:hover {
-  border-color: hsl(var(--primary));
+  border-color: var(--medical-primary-blue);
 }
 
 .ecg-file-input:disabled {
@@ -149,7 +149,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-foreground)) 100%);
+  background: linear-gradient(135deg, var(--medical-primary-blue) 0%, var(--medical-primary-blue-light) 100%);
   display: flex;
   justify-content: center;
   align-items: center;
