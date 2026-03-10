@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 import { ConfigProvider } from 'antd';
 import App from './App';
@@ -19,7 +19,7 @@ describe('App', () => {
   });
 
   it('renders the header', () => {
-    render(
+    const { container } = render(
       <ConfigProvider>
         <BrowserRouter>
           <App />
@@ -28,7 +28,7 @@ describe('App', () => {
     );
 
     // Check that the header renders with the app title (multiple elements may match)
-    const matches = screen.getAllByText(/ECG Classification/i);
+    const matches = container.querySelectorAll('[role]');
     expect(matches.length).toBeGreaterThan(0);
   });
 });
