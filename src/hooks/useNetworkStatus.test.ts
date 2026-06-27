@@ -10,7 +10,8 @@ describe('useNetworkStatus', () => {
       value: true,
     });
 
-    const { result } = renderHook(() => useNetworkStatus());
+    const { result, unmount } = renderHook(() => useNetworkStatus());
     expect(result.current.isOnline).toBe(true);
+    unmount();
   });
 });

@@ -84,3 +84,5 @@ vite.config.ts.timestamp-*
 # PWA generated
 sw.js
 workbox-*.js
+.env
+
