@@ -294,7 +294,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - **GitHub Issues**: [Report bugs or request features](https://github.com/pmartin1915/ecg-wizard-pwa/issues)
 - **Discussions**: [Community support and questions](https://github.com/pmartin1915/ecg-wizard-pwa/discussions)
-- **Research Inquiries**: [Academic collaboration opportunities](mailto:your-email@example.com)
+- **Research Inquiries**: [Academic collaboration opportunities](mailto:pmartin1913@gmail.com)
 
 ---
 

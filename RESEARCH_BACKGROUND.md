@@ -72,7 +72,7 @@ If you use ECG Wizard PWA in academic research, please cite both repositories:
 ```bibtex
 @software{martin2025ecgwizard,
   title={ECG Wizard: Professional Progressive Web Application for ECG Classification},
-  author={Martin, Paul},
+  author={Martin, Perry},
   year={2025},
   url={https://github.com/pmartin1915/ecg-wizard-pwa},
   note={Built with Claude Code}
@@ -80,7 +80,7 @@ If you use ECG Wizard PWA in academic research, please cite both repositories:
 
 @software{martin2024ecgclassification,
   title={ECG Classification System: Research Foundation},
-  author={Martin, Paul},
+  author={Martin, Perry},
   year={2024},
   url={https://github.com/pmartin1915/ecg-classification-system}
 }
